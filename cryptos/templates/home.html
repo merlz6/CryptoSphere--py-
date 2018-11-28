@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}CryptoSphere{% endblock %}
+
+{% block content %}
+<!--Look into making background green or red based on 24 hour change  -->
+<div class='pricetickers'>
+{% for key,value in price.items %}
+  <div class='tickers'>
+    <h5>{{key}} : </h5>
+    <h5> ${{value.USD}}</h5>
+    </div>
+{% endfor %}
+  </div>
+
+
+<h3 class='topCryptoH3'>Top Cryptocurrencies by Market Cap</h3>
+
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Ticker</th>
+        <th scope="col">Price</th>
+        <th scope="col">Market Cap</th>
+        <th scope="col">Volume</th>
+        <th scope="col">24hr Change %</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for key,value in prices.DISPLAY.items %}
+      <tr>
+        <th scope="row">{{key}}</th>
+        <td>{{value.USD.PRICE}}</td>
+        <td>{{value.USD.MKTCAP}}</td>
+        <td>{{value.USD.VOLUME24HOURTO}}</td>
+        <td>{{value.USD.CHANGEPCT24HOUR}} %</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+<!-- {{prices.DISPLAY}} -->
+
+
+
+
+
+
+{% endblock %}
